@@ -4,6 +4,7 @@ import { Route, Switch, NavLink } from 'react-router-dom';
 import * as jobAPI from '../../services/jobs-api'
 import HomePage from '../../pages/HomePage/HomePage';
 import AddJobPage from '../AddJobPage/AddJobPage';
+import EditJobPage from '../EditJobPage/EditJobPage';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
@@ -32,6 +33,17 @@ class App extends Component {
     this.setState(state => ({
       jobs: state.jobs.filter(j => j._id !== id)
     }), () => this.props.history.push('/'));
+  };
+
+  handleUpdateJob = async updateJobData => {
+    const updateJob = await jobAPI.update(updateJobData);
+    const newJobsArray = this.state.jobs.map(j =>
+        j._id === updateJob._id ? updateJob : j
+      );
+      this.setState(
+        {jobs: newJobsArray},
+        () => this.props.history.push('/')
+      );
   }
 
   handleLogout = () => {
@@ -42,8 +54,6 @@ class App extends Component {
   handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
   }
-
-
 
   render() {
     return (
@@ -68,6 +78,8 @@ class App extends Component {
             <HomePage
               handleLogout={this.handleLogout}
               user={this.state.user}
+              jobs={this.state.jobs}
+              handleDeleteJob={this.handleDeleteJob}
             />
           }/>
           <Route exact path='/new' render={() =>
@@ -75,6 +87,12 @@ class App extends Component {
               handleAddJob = {this.handleAddJob}
             />
           }/>
+          <Route exact path='/edit' render={({history, location}) => 
+          <EditJobPage
+            handleUpdateJob={this.handleUpdateJob}
+            location={location}
+            />
+          } />
         </Switch>
         <nav className='header-footer'>
             <NavLink exact to='/'>HOME</NavLink>

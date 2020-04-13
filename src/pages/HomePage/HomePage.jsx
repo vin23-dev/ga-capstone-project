@@ -13,7 +13,9 @@ const HomePage = (props) => {
         />
       </div>
       <h1 className="heading">Job List</h1>
-      <div>
+      <div className='HomePage-grid'>
+          {props.jobs ?
+          <>
           {props.jobs.map(job => 
             <JobCard
                 key={job._id}
@@ -21,6 +23,10 @@ const HomePage = (props) => {
                 handleDeleteJob={props.handleDeleteJob}
             />
           )}
+          </>
+        :
+        <div>Loading...</div>
+        }
       </div>
     </>
     );
