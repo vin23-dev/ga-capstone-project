@@ -1,4 +1,5 @@
 const Job = require('../models/job');
+const User = require('../models/user');
 
 module.exports = {
     index,
@@ -15,7 +16,7 @@ async function deleteOne(req,res) {
 
 async function update(req, res) {
     console.log(req.body)
-    const updateJob = await Job.findByIdAndUpdate(req.body.id, req.body, {new: true});
+    const updateJob = await Job.findByIdAndUpdate(req.params.id);
     console.log(updateJob);
     res.status(200).json(updateJob);
 };
@@ -26,7 +27,7 @@ async function show(req, res) {
 };
 
 async function create(req, res) {
-    req.body.user = req.user._id
+    // req.body.user = req.user._id;
     const job = await Job.create(req.body);
     res.status(201).json(job);
 };

@@ -25,6 +25,7 @@ class EditJobPage extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.handleUpdateJob(this.state);
+
   };
 
   handleChange = e => {
@@ -46,7 +47,7 @@ class EditJobPage extends Component {
     return (
       <>
        <h1>Edit Job</h1>
-        <form ref={this.state} autoComplete="off" onSubmit={this.handleSubmit}>
+        <form autoComplete="off" onSubmit={this.handleSubmit}>
           <div>
             <label>Company Name: </label>
             <input
