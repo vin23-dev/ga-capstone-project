@@ -47,6 +47,11 @@ class LoginPage extends Component {
               <button className="btn btn-default">Log In</button>&nbsp;&nbsp;&nbsp;
               <Link to='/'>Cancel</Link>
             </div>
+            <div className="form-group">
+                <div className="col-sm-12 text-center"><br/>
+                <Link to='/signup' className=''>SIGN UP</Link>
+                </div>
+            </div>
           </div>
         </form>
       </div>

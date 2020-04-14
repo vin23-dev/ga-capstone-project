@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
+import M from "materialize-css";
+import 'materialize-css/dist/css/materialize.css'
 
 class AddJobPage extends Component {
-  state = {
-    invalidForm: true,
-    formData: {
+ constructor(props) { 
+  super(props);
+  this.state = {
         company: '',
         positionTitle: '',
         location: '',
@@ -11,101 +13,110 @@ class AddJobPage extends Component {
         datePosted: '',
         dateApplied: '', 
         estimatedSalary: '',
-        notes: ''
-    }
+        notes: ''  
+}
+    this.datePosted = React.createRef();
+    this.dateApplied = React.createRef();
+
   };
 
-  formRef = React.createRef();
+  handleDate = () => {
+      this.setState({
+          datePosted: this.datePosted.current.value,
+          dateApplied: this.dateApplied.current.value
+      });
+  }
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.handleAddJob(this.state.formData);
+    this.props.handleAddJob(this.state);
   };
 
   handleChange = e => {
-    const formData = {...this.state.formData, [e.target.name]: e.target.value};
     this.setState({
-      formData,
-      invalidForm: !this.formRef.current.checkValidity()
+      [e.target.name]: e.target.value
     });
   };
 
+  componentDidMount() {
+    let context = this;
+        var elems = document.querySelectorAll('.datepicker');
+        M.Datepicker.init(elems, {
+            format: 'yyyy-mm-dd',
+            onClose: context.handleDate
+        });
+  }
+      
   render() {
     return (
       <>
         <h1>Add Job</h1>
         <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
-          <div className="form-group">
+          <div>
             <label>Company Name: </label>
             <input
-              className="form-control"
               name="company"
-              value={this.state.formData.name}
+              value={this.state.company}
               onChange={this.handleChange}
               required
             />
           </div>
-          <div className="form-group">
+          <div>
             <label>Position Title: </label>
             <input
-              className="form-control"
               name="positionTitle"
-              value={this.state.formData.positionTitle}
+              value={this.state.positionTitle}
               onChange={this.handleChange}
               required
             />
           </div>
-          <div className="form-group">
+          <div>
             <label>Location: </label>
             <input
-              className="form-control"
               name="location"
-              value={this.state.formData.location}
+              value={this.state.location}
               onChange={this.handleChange}
             />
           </div>
-          <div className="form-group">
+          <div>
             <label>Website: </label>
             <input
-              className="form-control"
               name="website"
-              value={this.state.formData.website}
+              value={this.state.website}
               onChange={this.handleChange}
             />
           </div>
-          <div className="form-group">
+          <div>
             <label>Date Posted: </label>
             <input
-              className="form-control"
+              className="datepicker"
               name="datePosted"
-              value={this.state.formData.datePosted}
+              ref={this.datePosted}
               onChange={this.handleChange}
             />
           </div>
-          <div className="form-group">
+          <div>
             <label>Date Applied: </label>
             <input
-              className="form-control"
+              className="datepicker"
               name="dateApplied"
-              value={this.state.formData.dateApplied}
+              ref={this.dateApplied}
               onChange={this.handleChange}
             />
           </div>
-          <div className="form-group">
+          <div>
             <label>Estimated Salary: </label>
             <input
-              className="form-control"
               name="estimatedSalary"
-              value={this.state.formData.estimatedSalary}
+              value={this.state.estimatedSalary}
               onChange={this.handleChange}
             />
           </div>
-          <div className="form-group">
+          <div>
             <label>notes: </label>
             <input
-              className="form-control"
               name="notes"
-              value={this.state.formData.notes}
+              value={this.state.notes}
               onChange={this.handleChange}
             />
           </div>
@@ -118,9 +129,11 @@ class AddJobPage extends Component {
           </button>
         </form>
       </>
+      
     );
   }
 }
+
 
 export default AddJobPage;
 

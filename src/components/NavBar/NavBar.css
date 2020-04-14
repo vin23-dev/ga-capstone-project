@@ -2,12 +2,13 @@
     display: flex;
     justify-content: center;
     margin: 0 0 20px;
+    vertical-align: middle;
   }
   
   .NavBar-link {
-    margin: 0 10px;
+    margin: 0 px;
   }
   
   .NavBar-welcome {
-    color: grey;
+    color: black;
   }

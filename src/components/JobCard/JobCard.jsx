@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-function JobCard({job, handleDeleteJob}) {
+function JobCard({props, job, handleDeleteJob}) {
     return (
         <div className='panel panel-default'>
             <div className="panel-heading">

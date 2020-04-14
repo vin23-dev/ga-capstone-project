@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch, NavLink } from 'react-router-dom';
+import { Route, Switch, NavLink, Redirect } from 'react-router-dom';
 import * as jobAPI from '../../services/jobs-api'
 import HomePage from '../../pages/HomePage/HomePage';
 import AddJobPage from '../AddJobPage/AddJobPage';
@@ -8,6 +8,7 @@ import EditJobPage from '../EditJobPage/EditJobPage';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
+import 'materialize-css/dist/css/materialize.css'
 
 class App extends Component {
   
@@ -61,6 +62,11 @@ class App extends Component {
         <header className='header-footer'>
           Software Dev Job Tracker
           </header>
+        <nav className='header-footer'>
+            <NavLink exact to='/'>HOME</NavLink>
+            &nbsp;&nbsp;&nbsp;
+            <NavLink exact to='/new'>ADD NEW LISTING</NavLink>
+        </nav>
         <Switch>
           <Route exact path='/signup' render={({ history }) => 
             <SignupPage
@@ -75,30 +81,34 @@ class App extends Component {
             />
           }/>
           <Route exact path='/' render={() =>
+          userService.getUser() ?
             <HomePage
               handleLogout={this.handleLogout}
               user={this.state.user}
               jobs={this.state.jobs}
               handleDeleteJob={this.handleDeleteJob}
             />
+          :
+            <Redirect to='/login'/>
           }/>
           <Route exact path='/new' render={() =>
+          userService.getUser() ?
             <AddJobPage 
               handleAddJob = {this.handleAddJob}
             />
+          :
+            <Redirect to='/login'/>
           }/>
           <Route exact path='/edit' render={({history, location}) => 
+          userService.getUser() ?
           <EditJobPage
             handleUpdateJob={this.handleUpdateJob}
             location={location}
             />
+          :
+            <Redirect to='/login'/>
           } />
         </Switch>
-        <nav className='header-footer'>
-            <NavLink exact to='/'>HOME</NavLink>
-            &nbsp;&nbsp;&nbsp;
-            <NavLink exact to='/new'>ADD NEW LISTING</NavLink>
-        </nav>
       </div>
     );
   }
