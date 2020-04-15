@@ -35,4 +35,5 @@ async function create(req, res) {
 async function index(req, res) {
     const jobs = await Job.find({user: req.user._id});
     res.status(200).json(jobs);
+    console.log(jobs)
 };

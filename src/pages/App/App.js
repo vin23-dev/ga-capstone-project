@@ -52,8 +52,11 @@ class App extends Component {
     this.setState({ user: null });
   }
 
-  handleSignupOrLogin = () => {
-    this.setState({user: userService.getUser()});
+  handleSignupOrLogin = async () => {
+    const jobs = await jobAPI.getAll();
+    this.setState({
+      jobs,
+      user: userService.getUser()});
   }
 
   render() {

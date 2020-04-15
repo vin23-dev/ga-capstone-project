@@ -1,5 +1,5 @@
 import tokenService from '../utils/tokenService';
-const BASE_URL = '/api/jobs';
+const BASE_URL = '/api/jobs/';
 
 export function getAll() {
   const options = {
@@ -29,7 +29,7 @@ export function deleteOne(id) {
 }
   
 export function update(job) {
-  return fetch(`${BASE_URL}/${job.id}`, {
+  return fetch(`${BASE_URL}${job.id}`, {
     method: 'PUT',
     headers: {'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()},
     body: JSON.stringify(job)
