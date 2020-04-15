@@ -51,7 +51,7 @@ class AddJobPage extends Component {
     return (
       <>
         <h1>Add Job</h1>
-        <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
+        <form autoComplete="off" onSubmit={this.handleSubmit}>
           <div>
             <label>Company Name: </label>
             <input

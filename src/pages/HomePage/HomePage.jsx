@@ -14,19 +14,14 @@ const HomePage = (props) => {
       </div>
       <h1 className="heading">Job List</h1>
       <div className='HomePage-grid'>
-          {props.jobs ?
           <>
           {props.jobs.map(job => 
             <JobCard
-                key={job._id}
-                job={job}
-                handleDeleteJob={props.handleDeleteJob}
-            />
-          )}
+            key={job._id}
+            job={job}
+            handleDeleteJob={props.handleDeleteJob}
+            />)}
           </>
-        :
-        <div>Loading...</div>
-        }
       </div>
     </>
     );

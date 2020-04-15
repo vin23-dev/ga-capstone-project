@@ -17,6 +17,7 @@ async function deleteOne(req,res) {
 async function update(req, res) {
     await Job.findByIdAndUpdate(req.body.id, req.body, {new: true}, function(err, updateJob){
         res.status(200).json(updateJob);
+        console.log(updateJob)
     });
 };
 
@@ -26,12 +27,12 @@ async function show(req, res) {
 };
 
 async function create(req, res) {
-    // req.body.user = req.user._id;
+    req.body.user = req.user._id;
     const job = await Job.create(req.body);
     res.status(201).json(job);
 };
 
 async function index(req, res) {
-    const jobs = await Job.find({});
+    const jobs = await Job.find({user: req.user._id});
     res.status(200).json(jobs);
 };
