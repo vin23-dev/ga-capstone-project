@@ -80,9 +80,10 @@ class App extends Component {
             handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
-          <Route exact path='/' render={() =>
+          <Route exact path='/' render={({ history }) =>
           userService.getUser() ?
             <HomePage
+              history={history}
               handleLogout={this.handleLogout}
               user={this.state.user}
               jobs={this.state.jobs}

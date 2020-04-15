@@ -21,7 +21,7 @@ export function deleteOne(id) {
   
 export function update(job) {
   console.log(job);
-  return fetch(`${BASE_URL}/${job.id}`, {
+  return fetch(`${BASE_URL}`, {
     method: 'PUT',
     headers: {'content-type': 'application/json'},
     body: JSON.stringify(job)
