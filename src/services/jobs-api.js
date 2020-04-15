@@ -1,4 +1,4 @@
-const BASE_URL = '/api/jobs/';
+const BASE_URL = '/api/jobs';
 
 export function getAll() {
   return fetch(BASE_URL)
@@ -20,8 +20,8 @@ export function deleteOne(id) {
 }
   
 export function update(job) {
-  console.log(job);
-  return fetch(`${BASE_URL}`, {
+  // console.log(job);
+  return fetch(`${BASE_URL}/${job.id}`, {
     method: 'PUT',
     headers: {'content-type': 'application/json'},
     body: JSON.stringify(job)

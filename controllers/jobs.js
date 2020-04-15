@@ -15,8 +15,7 @@ async function deleteOne(req,res) {
 };
 
 async function update(req, res) {
-    console.log(req.body)
-    const update = await Job.findByIdAndUpdate(req.body.id, req.body, function(err, updateJob){
+    await Job.findByIdAndUpdate(req.body.id, req.body, {new: true}, function(err, updateJob){
         res.status(200).json(updateJob);
     });
 };

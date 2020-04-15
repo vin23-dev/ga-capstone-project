@@ -43,6 +43,13 @@ class EditJobPage extends Component {
         });
   }
 
+  handleDate = () => {
+    this.setState({
+        datePosted: this.datePosted.current.value,
+        dateApplied: this.dateApplied.current.value
+    });
+  }
+
   render() {
     return (
       <>
@@ -52,7 +59,7 @@ class EditJobPage extends Component {
             <label>Company Name: </label>
             <input
               name="company"
-              value={this.statename}
+              value={this.state.company}
               onChange={this.handleChange}
               required
             />

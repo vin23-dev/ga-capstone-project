@@ -5,7 +5,7 @@ router.use(require('../../config/auth'));
 router.get('/', jobsCtrl.index);
 router.post('/', jobsCtrl.create);
 router.get('/:id', jobsCtrl.show);
-router.put('/', jobsCtrl.update);
+router.put('/:id', jobsCtrl.update);
 router.delete('/:id', jobsCtrl.delete);
 
 function isLoggedIn(req, res, next) {

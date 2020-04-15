@@ -44,7 +44,7 @@ class App extends Component {
       this.setState(
         {jobs: newJobsArray},
         () => this.props.history.push('/')
-      );
+        );
   }
 
   handleLogout = () => {
@@ -92,9 +92,10 @@ class App extends Component {
           :
             <Redirect to='/login'/>
           }/>
-          <Route exact path='/new' render={() =>
+          <Route exact path='/new' render={({ history }) =>
           userService.getUser() ?
             <AddJobPage 
+              history={history}
               handleAddJob = {this.handleAddJob}
             />
           :
@@ -103,6 +104,7 @@ class App extends Component {
           <Route exact path='/edit' render={({history, location}) => 
           userService.getUser() ?
           <EditJobPage
+            history={history}
             handleUpdateJob={this.handleUpdateJob}
             location={location}
             />
