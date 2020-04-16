@@ -62,14 +62,18 @@ class App extends Component {
   render() {
     return (
       <div>
-        <header className='header-footer'>
-          Software Dev Job Tracker
-          </header>
-        <nav className='header-footer'>
-            <NavLink exact to='/'>HOME</NavLink>
+        {userService.getUser() ?
+        <nav className='nav-wrapper red'>
+          <ul className="left hide-on-med-and-down">
+            <li><NavLink exact to='/'>HOME</NavLink></li>
             &nbsp;&nbsp;&nbsp;
-            <NavLink exact to='/new'>ADD NEW LISTING</NavLink>
+            <li><NavLink exact to='/new'>ADD JOB</NavLink></li>
+          </ul>
         </nav>
+        :<></>}
+        <header className='header-footer center'>
+          Software Dev Job Tracker
+        </header>
         <Switch>
           <Route exact path='/signup' render={({ history }) => 
             <SignupPage

@@ -50,11 +50,12 @@ class AddJobPage extends Component {
   render() {
     return (
       <>
-        <h1>Add Job</h1>
-        <form autoComplete="off" onSubmit={this.handleSubmit}>
+        <h1 className="center">Add Job</h1>
+        <form  className="center col s12" autoComplete="off" onSubmit={this.handleSubmit}>
           <div>
             <label>Company Name: </label>
             <input
+              className="input-field col l6"
               name="company"
               value={this.state.company}
               onChange={this.handleChange}
@@ -122,7 +123,7 @@ class AddJobPage extends Component {
           </div>
           <button
             type="submit"
-            className="btn"
+            className="btn red"
             disabled={this.state.invalidForm}
           >
             ADD JOB

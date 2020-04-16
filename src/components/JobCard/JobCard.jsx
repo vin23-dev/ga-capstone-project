@@ -1,33 +1,34 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import './JobCard.css'
 
 function JobCard({props, job, handleDeleteJob}) {
     return (
-        <div className='panel panel-default'>
-            <div className="panel-heading">
-                <h3 className='panel-title'>{job.company}</h3>
+        
+        <div className='card center'>
+            <div className="card-content">
+                <h3>{job.company}</h3>
+            <div>
+                <ul>
+                    <h5>Position Title</h5>
+                    <li>{job.positionTitle}</li>
+                    <h5>Location</h5>
+                    <li>{job.location}</li>
+                    <h5>Website</h5>
+                    <li>{job.website}</li>
+                    <h5>Date Posted</h5>
+                    <li>{job.datePosted}</li>
+                    <h5>Date Applied</h5>
+                    <li>{job.dateApplied}</li>
+                    <h5>Estimated Salary</h5>
+                    <li>{job.estimatedSalary}</li>
+                    <h5>Notes</h5>
+                    <li>{job.notes}</li>
+                </ul>
             </div>
-            <div className='panel-body'>
-                <dl>
-                    <dt>Position Title</dt>
-                    <dd>{job.positionTitle}</dd>
-                    <dt>Location</dt>
-                    <dd>{job.location}</dd>
-                    <dt>Website</dt>
-                    <dd>{job.website}</dd>
-                    <dt>Date Posted</dt>
-                    <dd>{job.datePosted}</dd>
-                    <dt>Date Applied</dt>
-                    <dd>{job.dateApplied}</dd>
-                    <dt>Estimated Salary</dt>
-                    <dd>{job.estimatedSalary}</dd>
-                    <dt>Notes</dt>
-                    <dd>{job.notes}</dd>
-                </dl>
-            </div>
-            <div className='panel-footer'>
+            <div>
             <Link
-                className='btn btn-xs btn-warning'
+                className='btn red'
                 to={{
                         pathname: '/edit',
                         state: {job}
@@ -36,11 +37,12 @@ function JobCard({props, job, handleDeleteJob}) {
             EDIT
             </Link>
                 <button
-                    className='btn btn-xs btn-danger margin-left-10'
+                    className='btn red'
                     onClick={() => handleDeleteJob(job._id)}
                 >
                     DELETE
                 </button>
+            </div>
             </div>
         </div>
     )

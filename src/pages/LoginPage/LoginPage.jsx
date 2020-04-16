@@ -31,10 +31,10 @@ class LoginPage extends Component {
     return (
       <div className="LoginPage">
         <header className="header-footer">Log In</header>
-        <form className="form-horizontal" onSubmit={this.handleSubmit} >
+        <form className="col s12" onSubmit={this.handleSubmit} >
           <div className="form-group">
-            <div className="col-sm-12">
-              <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
+            <div className="input-field col s12">
+              <input type="email" className="input-field col s12" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
             </div>
           </div>
           <div className="form-group">
@@ -43,20 +43,23 @@ class LoginPage extends Component {
             </div>
           </div>
           <div className="form-group">
-            <div className="col-sm-12 text-center">
-              <button className="btn btn-default">Log In</button>&nbsp;&nbsp;&nbsp;
+            <div className="col-sm-12">
+              <button className="btn btn-large red">Log In</button>&nbsp;&nbsp;&nbsp;
               <Link to='/'>Cancel</Link>
             </div>
-            <div className="form-group">
-                <div className="col-sm-12 text-center"><br/>
-                <Link to='/signup' className=''>SIGN UP</Link>
-                </div>
+                <div className="center"><br/>
+                <Link to='/signup' className='btn blue'>SIGN UP</Link>
             </div>
           </div>
         </form>
       </div>
+
+
+        
     );
+    
   }
 }
+
 
 export default LoginPage;
