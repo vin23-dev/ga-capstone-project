@@ -6,14 +6,14 @@ import './HomePage.css'
 const HomePage = (props) => {
     return (
     <>
-      <div className="HomePage">
+      <div className="center">
         <NavBar
           user={props.user}
           handleLogout={props.handleLogout}
         />
       </div>
       <h1 className="heading">Job List</h1>
-      <div className='HomePage-grid'>
+      <div className='center'>
           <>
           {props.jobs.map(job => 
             <JobCard

@@ -17,7 +17,6 @@ async function deleteOne(req,res) {
 async function update(req, res) {
     await Job.findByIdAndUpdate(req.body.id, req.body, {new: true}, function(err, updateJob){
         res.status(200).json(updateJob);
-        console.log(updateJob)
     });
 };
 
@@ -35,5 +34,4 @@ async function create(req, res) {
 async function index(req, res) {
     const jobs = await Job.find({user: req.user._id});
     res.status(200).json(jobs);
-    console.log(jobs)
 };

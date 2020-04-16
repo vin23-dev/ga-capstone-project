@@ -3,7 +3,7 @@ const jobsCtrl = require('../../controllers/jobs');
 
 router.use(require('../../config/auth'));
 router.get('/', jobsCtrl.index);
-router.post('/', jobsCtrl.create);
+router.post('/', isLoggedIn, jobsCtrl.create);
 router.get('/:id', jobsCtrl.show);
 router.put('/:id', jobsCtrl.update);
 router.delete('/:id', jobsCtrl.delete);
