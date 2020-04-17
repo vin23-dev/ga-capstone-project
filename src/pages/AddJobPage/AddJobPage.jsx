@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import M from "materialize-css";
 import 'materialize-css/dist/css/materialize.css'
+import './AddJobPage.css'
 
 class AddJobPage extends Component {
  constructor(props) { 
@@ -46,16 +47,22 @@ class AddJobPage extends Component {
             onClose: context.handleDate
         });
   }
+
+  handleEmptyInput() {
+      let emptyInput = document.querySelectorAll('input')
+      if (this.state.input.value === '');
+        emptyInput.value = 'N/A';
+  }
       
   render() {
     return (
       <>
         <h1 className="center">Add Job</h1>
-        <form  className="center col s12" autoComplete="off" onSubmit={this.handleSubmit}>
+        <div className="form">
+        <form autoComplete="off" onSubmit={this.handleSubmit}>
           <div>
             <label>Company Name: </label>
             <input
-              className="input-field col l6"
               name="company"
               value={this.state.company}
               onChange={this.handleChange}
@@ -77,6 +84,7 @@ class AddJobPage extends Component {
               name="location"
               value={this.state.location}
               onChange={this.handleChange}
+              required
             />
           </div>
           <div>
@@ -114,13 +122,14 @@ class AddJobPage extends Component {
             />
           </div>
           <div>
-            <label>notes: </label>
+            <label>Notes: </label>
             <input
+              className="input"
               name="notes"
               value={this.state.notes}
               onChange={this.handleChange}
             />
-          </div>
+          </div><br/><br/>
           <button
             type="submit"
             className="btn red"
@@ -129,6 +138,7 @@ class AddJobPage extends Component {
             ADD JOB
           </button>
         </form>
+        </div>
       </>
       
     );
