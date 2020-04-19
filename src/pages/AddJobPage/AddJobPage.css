@@ -1,11 +1,16 @@
 .form {
     display: flex;
-    width: 50%;
+    width: 60%;
     justify-content: center;
     width: 100vw;
 }
 
 form {
     display: inline-block;
-    width: 30%;
+    width: 33%;
+}
+
+.input-field {
+    color: black;
+    font-weight: 900;
 }

@@ -2,3 +2,9 @@
     display: inline-block;
     width: 33%;
 }
+.btn.yellow {
+    color: black;
+}
+.btn.red {
+    color: black;
+}

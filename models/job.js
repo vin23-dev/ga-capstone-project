@@ -11,7 +11,7 @@ const jobSchema = new mongoose.Schema({
         type: String,
     },
     website: {
-        type: String
+        type: String,
     },
     datePosted: {
         type: String

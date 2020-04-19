@@ -5,7 +5,7 @@ import './JobCard.css'
 function JobCard({props, job, handleDeleteJob}) {
     return (
         
-        <div className='card center'>
+        <div className='card center #e65100 #424242 grey darken-3'>
             <div className="card-content">
                 <h3>{job.company}</h3>
             <div>
@@ -28,7 +28,7 @@ function JobCard({props, job, handleDeleteJob}) {
             </div>
             <div>
             <Link
-                className='btn red'
+                className='btn yellow'
                 to={{
                         pathname: '/edit',
                         state: {job}
@@ -36,6 +36,7 @@ function JobCard({props, job, handleDeleteJob}) {
             >
             EDIT
             </Link>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button
                     className='btn red'
                     onClick={() => handleDeleteJob(job._id)}

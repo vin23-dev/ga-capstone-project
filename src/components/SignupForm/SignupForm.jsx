@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
 
+
 class SignupForm extends Component {
 
   state = {
@@ -37,34 +38,26 @@ class SignupForm extends Component {
     return (
       <div>
         <header className="header-footer">Sign Up</header>
-        <form className="form-horizontal" onSubmit={this.handleSubmit} >
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="text" className="form-control" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange} />
-            </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
-            </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange} />
-            </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
-            </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12 text-center">
-              <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
+        <div className="form">
+        <form className="center" onSubmit={this.handleSubmit} >
+         <div className="input-field">
+            <input type="text" className="input-field" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange} />
+        </div>
+        <div className="input-field">
+            <input type="email" className="input-field" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
+        </div>
+        <div className="col-sm-12">
+            <input type="password" className="input-field" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange} />
+        </div>
+        <div className="col-sm-12">
+            <input type="password" className="input-field" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
+         </div>
+        <div className="col-sm-12 text-center">
+            <button className='btn red' disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
               <Link to='/'>Cancel</Link>
-            </div>
-          </div>
+        </div>
         </form>
+        </div>
       </div>
     );
   }

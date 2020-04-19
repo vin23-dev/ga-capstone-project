@@ -1,7 +1,8 @@
-.SignupPage {
+.Signupform{
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
+    width: 50%;
     align-items: center;
-    margin-bottom: 50px;
+    width: 100vw;
 }
+
+

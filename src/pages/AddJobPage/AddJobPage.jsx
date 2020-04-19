@@ -28,7 +28,7 @@ class AddJobPage extends Component {
       });
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.handleAddJob(this.state);
   };
@@ -47,12 +47,6 @@ class AddJobPage extends Component {
             onClose: context.handleDate
         });
   }
-
-  handleEmptyInput() {
-      let emptyInput = document.querySelectorAll('input')
-      if (this.state.input.value === '');
-        emptyInput.value = 'N/A';
-  }
       
   render() {
     return (
@@ -61,7 +55,7 @@ class AddJobPage extends Component {
         <div className="form">
         <form autoComplete="off" onSubmit={this.handleSubmit}>
           <div>
-            <label>Company Name: </label>
+            <label className="input-field">Company Name: </label>
             <input
               name="company"
               value={this.state.company}
@@ -70,8 +64,9 @@ class AddJobPage extends Component {
             />
           </div>
           <div>
-            <label>Position Title: </label>
+            <label className="input-field">Position Title: </label>
             <input
+              className="input-field"
               name="positionTitle"
               value={this.state.positionTitle}
               onChange={this.handleChange}
@@ -79,8 +74,9 @@ class AddJobPage extends Component {
             />
           </div>
           <div>
-            <label>Location: </label>
+            <label className="input-field">Location: </label>
             <input
+              
               name="location"
               value={this.state.location}
               onChange={this.handleChange}
@@ -88,52 +84,58 @@ class AddJobPage extends Component {
             />
           </div>
           <div>
-            <label>Website: </label>
+            <label className="input-field">Website: </label>
             <input
               name="website"
               value={this.state.website}
               onChange={this.handleChange}
+              required
             />
           </div>
           <div>
-            <label>Date Posted: </label>
-            <input
+            <label className="input-field">Date Posted: </label>
+            <input  
               className="datepicker"
               name="datePosted"
               ref={this.datePosted}
               onChange={this.handleChange}
+              required
             />
           </div>
           <div>
-            <label>Date Applied: </label>
+            <label className="input-field">Date Applied: </label>
             <input
               className="datepicker"
               name="dateApplied"
               ref={this.dateApplied}
               onChange={this.handleChange}
+              required
             />
           </div>
           <div>
-            <label>Estimated Salary: </label>
+            <label className="input-field">Estimated Salary: </label>
             <input
               name="estimatedSalary"
               value={this.state.estimatedSalary}
               onChange={this.handleChange}
+              required
             />
           </div>
           <div>
-            <label>Notes: </label>
+            <label className="input-field">Notes: </label>
             <input
               className="input"
               name="notes"
               value={this.state.notes}
               onChange={this.handleChange}
+              required
             />
           </div><br/><br/>
           <button
             type="submit"
-            className="btn red"
+            className="btn red center"
             disabled={this.state.invalidForm}
+            required
           >
             ADD JOB
           </button>
