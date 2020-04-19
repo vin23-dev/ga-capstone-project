@@ -14,3 +14,14 @@ form {
     color: black;
     font-weight: 900;
 }
+
+.datepicker-date-display {
+    background-color: red;
+    color: black;
+}
+
+.datepicker-cancel, .datepicker-done {
+    color: red;
+}
+
+

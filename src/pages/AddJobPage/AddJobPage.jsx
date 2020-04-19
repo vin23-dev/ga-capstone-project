@@ -66,7 +66,6 @@ class AddJobPage extends Component {
           <div>
             <label className="input-field">Position Title: </label>
             <input
-              className="input-field"
               name="positionTitle"
               value={this.state.positionTitle}
               onChange={this.handleChange}
@@ -76,7 +75,6 @@ class AddJobPage extends Component {
           <div>
             <label className="input-field">Location: </label>
             <input
-              
               name="location"
               value={this.state.location}
               onChange={this.handleChange}
@@ -124,7 +122,6 @@ class AddJobPage extends Component {
           <div>
             <label className="input-field">Notes: </label>
             <input
-              className="input"
               name="notes"
               value={this.state.notes}
               onChange={this.handleChange}

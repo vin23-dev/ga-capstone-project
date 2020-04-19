@@ -65,9 +65,11 @@ class App extends Component {
         {userService.getUser() ?
         <nav className='nav-wrapper red'>
           <ul className="left hide-on-med-and-down">
+            <div>
             <li><NavLink exact to='/'>HOME</NavLink></li>
             &nbsp;&nbsp;&nbsp;
             <li><NavLink exact to='/new'>ADD JOB</NavLink></li>
+            </div>
           </ul>
         </nav>
         :<></>}
