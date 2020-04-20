@@ -5,6 +5,7 @@ margin-bottom: 10px;
 .HomePage {
 display: flex;
 flex-direction: column;
+font-family: 'Source Code Pro', monospace;
 }
 
 .HomePage-controls {
@@ -17,4 +18,5 @@ margin-left: 20px;
 .heading {
     display: flex;
     justify-content: center;
+    font-family: 'Source Code Pro', monospace;
 }

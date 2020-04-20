@@ -65,7 +65,7 @@ class App extends Component {
         {userService.getUser() ?
         <nav className='nav-wrapper red'>
           <ul className="left hide-on-med-and-down">
-            <div>
+            <div className="links">
             <li><NavLink exact to='/'>HOME</NavLink></li>
             &nbsp;&nbsp;&nbsp;
             <li><NavLink exact to='/new'>ADD JOB</NavLink></li>
@@ -74,7 +74,7 @@ class App extends Component {
         </nav>
         :<></>}
         <header className='header-footer center'>
-          Software Dev Job Tracker
+          Software Development Job Tracker
         </header>
         <Switch>
           <Route exact path='/signup' render={({ history }) => 

@@ -1,10 +1,13 @@
 .card {
     display: inline-block;
     width: 33%;
+    font-family: 'Source Code Pro', monospace;
 }
 .btn.yellow {
     color: black;
+    font-family: 'Source Code Pro', monospace;
 }
 .btn.red {
     color: black;
+    font-family: 'Source Code Pro', monospace;
 }

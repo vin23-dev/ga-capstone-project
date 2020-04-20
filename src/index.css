@@ -34,6 +34,7 @@ button:focus, .btn:focus {
   color: black;
   font-size: 25px;
   text-align: center;
+  font-family: 'Source Code Pro', monospace;
 }
 
 html {
