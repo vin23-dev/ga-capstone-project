@@ -46,7 +46,7 @@ class AddJobPage extends Component {
             format: 'yyyy-mm-dd',
             onClose: context.handleDate
         });
-  }
+  };
       
   render() {
     return (

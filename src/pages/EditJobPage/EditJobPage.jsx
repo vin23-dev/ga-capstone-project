@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import M from "materialize-css";
 import 'materialize-css/dist/css/materialize.css'
+import './EditJobPage.css';
 
 class EditJobPage extends Component {
   constructor(props) { 
@@ -53,10 +54,11 @@ class EditJobPage extends Component {
   render() {
     return (
       <>
-       <h1>Edit Job</h1>
+       <h1 className="center">Edit Job</h1>
+       <div className="form">
         <form autoComplete="off" onSubmit={this.handleSubmit}>
           <div>
-            <label>Company Name: </label>
+            <label className="input-field">Company Name: </label>
             <input
               name="company"
               value={this.state.company}
@@ -65,7 +67,7 @@ class EditJobPage extends Component {
             />
           </div>
           <div>
-            <label>Position Title: </label>
+            <label className="input-field">Position Title: </label>
             <input
               name="positionTitle"
               value={this.state.positionTitle}
@@ -74,7 +76,7 @@ class EditJobPage extends Component {
             />
           </div>
           <div>
-            <label>Location: </label>
+            <label className="input-field">Location: </label>
             <input
               name="location"
               value={this.state.location}
@@ -82,7 +84,7 @@ class EditJobPage extends Component {
             />
           </div>
           <div>
-            <label>Website: </label>
+            <label className="input-field">Website: </label>
             <input
               name="website"
               value={this.state.website}
@@ -90,7 +92,7 @@ class EditJobPage extends Component {
             />
           </div>
           <div>
-            <label>Date Posted: </label>
+            <label className="input-field">Date Posted: </label>
             <input
               className="datepicker"
               name="datePosted"
@@ -99,7 +101,7 @@ class EditJobPage extends Component {
             />
           </div>
           <div>
-            <label>Date Applied: </label>
+            <label className="input-field">Date Applied: </label>
             <input
               className="datepicker"
               name="dateApplied"
@@ -108,7 +110,7 @@ class EditJobPage extends Component {
             />
           </div>
           <div>
-            <label>Estimated Salary: </label>
+            <label className="input-field">Estimated Salary: </label>
             <input
               className="form-control"
               name="estimatedSalary"
@@ -117,7 +119,7 @@ class EditJobPage extends Component {
             />
           </div>
           <div>
-            <label>Notes: </label>
+            <label className="input-field">Notes: </label>
             <input
               name="notes"
               value={this.state.notes}
@@ -125,13 +127,15 @@ class EditJobPage extends Component {
             />
           </div>
           <button
+            
             type="submit"
-            className="btn btn-xs"
+            className="btn red"
           >
             Update Job
           </button>&nbsp;&nbsp;
           <Link to='/'>CANCEL</Link>
         </form>
+        </div>
       </>
     );
   }

@@ -1,0 +1,16 @@
+.form {
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    width: 100vw;
+}
+
+form {
+    display: inline-block;
+    width: 33%;
+}
+
+.input-field {
+    color: black;
+    font-weight: 900;
+}
